@@ -1,0 +1,22 @@
+dataset_name: P0BraCor
+dataset_dir: ../data/AdBraCor/
+dataset_type: RNA_ATAC
+GAM_name: Signac
+paired: True 
+
+n_high_var: 2000
+hid_dim: 256
+
+metric: cosine
+use_rep: hvg_count #[hvg_count, hvg_norm, low_emb]
+
+latent_dim: 32
+k_neighbors: 10
+k_clusters: 19
+
+seed: 666
+batch_size: 256
+learning_rate: 0.003
+weight_decay: 0.00001
+epoch: 150
+
