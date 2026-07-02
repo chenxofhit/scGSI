@@ -104,10 +104,10 @@ class scGSI(nn.Module):
         z_rna = self.RNA_encoder(rna, rna_edge_index)
         z_atac = self.ATAC_encoder(atac, atac_edge_index)
 
+        cos_loss = self.Cosine_align_loss(z_rna, z_atac)
+        
         pro_z_rna = self.projection_head_rna(z_rna)
         pro_z_atac = self.projection_head_atac(z_atac)
-
-        cos_loss = self.Cosine_align_loss(pro_z_rna, pro_z_atac)
 
         z_rna_fused, z_atac_fused = self.fusion_module(pro_z_rna, pro_z_atac)
 
