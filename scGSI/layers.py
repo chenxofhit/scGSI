@@ -231,3 +231,18 @@ class MLPDecoder(nn.Module):
         return x
 
 
+class Projection_head(nn.Module):
+
+    def __init__(self, latent_dim, proj_dim):
+        super().__init__()
+        self.projection_head = nn.Sequential(
+            nn.Linear(latent_dim, latent_dim),
+            nn.ReLU(inplace=True),
+            nn.Linear(latent_dim, proj_dim)
+        )
+
+    def forward(self, latent):
+
+        proj = self.projection_head(latent)
+
+        return proj
